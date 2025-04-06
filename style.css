@@ -21,7 +21,7 @@ header {
   position: sticky;
   top: 0;
   background: linear-gradient(135deg, #4a00e0, #8e2de2);
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem; 
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,6 +36,7 @@ header {
   height: 60px;
 }
 
+#devops { background-color: #f2f2ff; }
 nav {
   display: flex;
   align-items: center;
@@ -66,6 +67,10 @@ nav {
   gap: 20px;
 }
 
+.nav-menu li {
+  position: relative;
+}
+
 .nav-menu li a {
   color: #fff;
   text-decoration: none;
@@ -78,9 +83,60 @@ nav {
 }
 
 
+.dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: linear-gradient(135deg, #4a00e0, #8e2de2);
+  list-style: none;
+  min-width: 200px;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li {
+  margin: 0;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 15px;
+  font-size: 1rem;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-menu li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffc371;
+}
+
+
+#home { background-color: #e0e0ff; }
+#about { background-color: #f9f3ff; }
+#services { background-color: #f1f1f1; }
+#tech { background-color: #e3e3f8; }
+#frontend { background-color: #e6e6ff; }
+#backend { background-color: #e9e9ff; }
+#web3 { background-color: #ececff; }
+#databases { background-color: #efeff8; }
+#community { background-color: #f3f6fb; }
+#contact { background-color: #f9f9f9; }
+
+/* Media Queries */
 @media (max-width: 768px) {
   .hamburger {
     display: block;
+  }
+
+  header {
+    padding: 0.4rem 1.5rem; 
   }
 
   .nav-menu {
@@ -113,16 +169,45 @@ nav {
   .nav-menu li a:hover {
     color: #ffc371;
   }
+
+  .dropdown .dropdown-menu {
+    position: static;
+    display: none;
+    background: rgba(255, 255, 255, 0.1);
+    width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .dropdown.active .dropdown-menu {
+    display: block;
+  }
+
+  .dropdown-menu li a {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 0.3rem 1rem; /* Further reduced for mobile */
+  }
+
+  .logo {
+    height: 50px; /* Slightly smaller logo for mobile */
+  }
 }
 
 main {
   max-width: 1000px;
-   margin: 0 auto;
+  margin: 0 auto;
 }
 
 section {
-  padding: 80px 20px;
+  padding: 80px 20px 80px; 
   text-align: center;
+  scroll-margin-top: 70px; 
 }
 
 h1 {
@@ -159,24 +244,11 @@ p {
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
-
-#home { background-color: #e0e0ff; }
-#about { background-color: #f9f3ff; }
-#services { background-color: #f1f1f1; }
-#tech { background-color: #e3e3f8; }
-#community { background-color: #f3f6fb; }
-#contact { background-color: #f9f9f9; }
-
-
 footer {
   background-color: #2626ae;
   color: #e3e3f8;
   font-size: 0.9rem;
   font-weight: 300;
-  position: relative;
-  opacity: 0.9;
-  /* brightness: 0.9; */
-  /* filter: brightness(0.9); */
   padding: 40px 20px;
   text-align: center;
 }
